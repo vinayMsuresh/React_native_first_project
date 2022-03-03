@@ -17,9 +17,6 @@ export default function First_basics({navigation}) {
   }
   return (
     <View style={styles.container}>
-    <View style={styles.header}>
-        <Text style={styles.bolder}>Introduction App</Text>
-    </View>
     <View style={styles.body}>
       <Text>Name is {person.name} and Age is {person.age}</Text>  
     </View>

@@ -8,8 +8,9 @@ export default function Home({navigation}) {
         }
   return (
     <View style={styles.container}>
-        <Text style={styles.bolder}>Home Component</Text>
-        <Button title="go to Review" onPress={pressHandler} />
+        <Button title="go to First_page" onPress={pressHandler} />
+        <Button title="go to Reviews" onPress={()=>navigation.navigate('Reviews')} />
+        <Button title="Todo" onPress={()=>navigation.navigate('Todo')} />
     </View>
   )
 }

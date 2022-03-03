@@ -67,7 +67,6 @@ export default function Todo() {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         <View style={styles.container}>
-            <Text style={styles.header}>My List</Text>
             <View style={styles.content}>
                 {isAdd ? <AddTodo addTodo={addTodo} /> : <EditTodo val={val} editTodo={editTodo} />}
                 
