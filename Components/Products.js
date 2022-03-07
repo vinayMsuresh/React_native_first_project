@@ -17,8 +17,8 @@ export default function Products({navigation}) {
         data={reviews}
         renderItem = {({item})=>(
             <View style={styles.list}>               
-                <TouchableOpacity onPress={()=>navigation.navigate('Review_Details', item)}>
-                <Text style={styles.bolder}>{item.title}</Text>
+                <TouchableOpacity onPress={()=>navigation.navigate('Review_details', item)}>
+                <Text style={{fontWeight:'bold',color:'black'}}>{item.title}</Text>
                 </TouchableOpacity>
             </View>
         )}

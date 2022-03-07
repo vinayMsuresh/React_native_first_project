@@ -8,13 +8,13 @@ export default function ReviewDeatils({route, navigation}) {
     <View style={styles.container}>
 
         <View style={styles.list}>
-            <Text style={styles.bolder}>Title: {title}</Text>
+            <Text style={{fontWeight:'bold',color:'black'}}>Title: {title}</Text>
         </View>
         <View style={styles.list}>
-            <Text style={styles.bolder}>Body: {body}</Text>
+            <Text style={{fontWeight:'bold',color:'black'}}>Body: {body}</Text>
         </View>
         <View style={styles.list}>
-            <Text style={styles.bolder}>Rating: {rating}</Text>
+            <Text style={{fontWeight:'bold',color:'black'}}>Rating: {rating}</Text>
         </View>
     </View>
   )

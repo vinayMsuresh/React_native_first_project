@@ -4,16 +4,18 @@ const styles = StyleSheet.create({
       flex: 1
     },
     header: {
-      backgroundColor: 'red',
-      marginTop: 30,
-      padding: 15,
-      textAlign: 'center',
-      fontSize: 20,
-      fontWeight: 'bold'
+      width:320,
+      height:'100%',      
+      flexDirection:'row',
+      justifyContent:'center',
+      alignItems: 'center',
+      backgroundColor:'red'
     },
     bolder: {
       fontWeight:'bold',
       color:'black',
+      fontSize: 20,
+      letterSpacing:1
     },
     body: {
       backgroundColor: 'blue',
