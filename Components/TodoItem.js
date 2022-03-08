@@ -2,10 +2,11 @@ import React from 'react';
 import styles from '../Styles/Styles';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { MaterialIcons, Entypo  } from '@expo/vector-icons'; 
+import Card from '../Styles/Card';
 
 export default function TodoItem({item, deleteTodo, edit}) {
   return (
-    <View style={styles.todo}>
+    <View style={styles.todo}>      
         <Text style={styles.task}>{item.task}</Text>
         <View style={{flexDirection:'row'}}>
         <Entypo name="edit" size={24} color="black" style={{marginRight:20}} onPress={()=>edit(item)}/>
@@ -14,6 +15,7 @@ export default function TodoItem({item, deleteTodo, edit}) {
         {/* <TouchableOpacity onPress={()=>deleteTodo(item.id)}>
         <Text style={styles.delText}>Delete</Text>
         </TouchableOpacity> */}
+       
     </View>
   )
 }

@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import {View, TouchableOpacity, FlatList, Text} from 'react-native';
 import styles from '../Styles/Styles';
+import Card from '../Styles/Card';
 export default function Products({navigation}) {
     const [reviews, setReviews] = useState([
         {id: 1, title: 'wjnewekwmmwle', rating:5, body: 'lorem sdd'},
@@ -16,11 +17,11 @@ export default function Products({navigation}) {
         keyExtractor={(rev)=> rev.id}
         data={reviews}
         renderItem = {({item})=>(
-            <View style={styles.list}>               
+            <Card>               
                 <TouchableOpacity onPress={()=>navigation.navigate('Review_details', item)}>
                 <Text style={{fontWeight:'bold',color:'black'}}>{item.title}</Text>
                 </TouchableOpacity>
-            </View>
+            </Card>
         )}
         />
     </View>

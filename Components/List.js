@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../Styles/Styles';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import Card from '../Styles/Card';
 
 export default function List() {
     const [products, setProducts] = useState([
@@ -31,12 +32,12 @@ export default function List() {
         numColumns={2}
         data={products}
         renderItem = {({item})=>(
-            <View style={styles.list}>
+            <Card>
                 <Text style={styles.bolder}>{item.name}</Text>
                 <TouchableOpacity onPress={()=>deleteItem(item.id)}>
                 <Text style={styles.btnText}>Delete</Text>
                 </TouchableOpacity>
-            </View>
+            </Card>
         )}
         />
         {/* <ScrollView>
