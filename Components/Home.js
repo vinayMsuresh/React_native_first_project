@@ -1,16 +1,19 @@
-import React from 'react'
-import { Text, View, Button } from 'react-native'
-import styles from '../Styles/Styles'
+import React,{useState} from 'react'
+import { Text, View, Button,Modal, ImageBackground } from 'react-native'
+import styles from '../Styles/Styles';
+import { Ionicons } from '@expo/vector-icons'; 
+import AddReview from './AddReview';
 
 export default function Home({navigation}) {
-        const pressHandler = () => {
-        navigation.navigate("First_Basics")
-        }
+  const [show, setShow] = useState(false);
+        
   return (
     <View style={styles.container}>
-        <Button title="go to First_page" onPress={pressHandler} />
-        <Button title="go to Reviews" onPress={()=>navigation.navigate('Reviews')} />
-        <Button title="Todo" onPress={()=>navigation.navigate('Todo')} />
+      <Ionicons name="add-outline" size={24} style={styles.modalToggle} onPress={()=>setShow(true)} />
+        <Modal visible={show}>
+        <Ionicons name="close-outline" style={styles.modalToggle} size={24} onPress={()=>setShow(false)} />
+        <AddReview addReview={(val) => console.log(val)}/>
+        </Modal>
     </View>
   )
 }

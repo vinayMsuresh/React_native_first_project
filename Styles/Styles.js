@@ -9,13 +9,13 @@ const styles = StyleSheet.create({
       flexDirection:'row',
       justifyContent:'center',
       alignItems: 'center',
-      backgroundColor:'red'
     },
     bolder: {
       fontWeight:'bold',
       color:'black',
       fontSize: 20,
-      letterSpacing:1
+      letterSpacing:1,
+      marginRight:10
     },
     body: {
       backgroundColor: 'blue',
@@ -87,6 +87,14 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent:'center',
       marginTop:16
+    },
+    modalToggle:{
+      marginVertical:10,
+      borderWidth:1,
+      borderColor:'blue',
+      padding:15,
+      borderRadius:10,
+      alignSelf:'center'
     }
 
   });
