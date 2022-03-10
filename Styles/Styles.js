@@ -48,15 +48,18 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     btn:{
-        marginLeft:10,
-        width: 100,
+        paddingHorizontal:14,
+        paddingVertical:12,
+        borderRadius: 8,
         backgroundColor:'red'
     },
     btnText:{
-      margin:5,
       backgroundColor:'red',
       color:'white',
-      padding: 10
+      textAlign:'center',
+      fontSize: 17,
+      fontWeight: 'bold',
+      textTransform: 'uppercase'
     },
     content:{
       marginTop:25,
@@ -95,6 +98,12 @@ const styles = StyleSheet.create({
       padding:15,
       borderRadius:10,
       alignSelf:'center'
+    },
+    errorText:{
+      marginVertical:5,
+      color:'red',
+      fontSize: 16,
+      textAlign:'center'
     }
 
   });

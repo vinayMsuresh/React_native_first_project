@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {View, TouchableOpacity, FlatList, Text, Modal} from 'react-native';
+import {View, TouchableOpacity, FlatList, Text, Modal, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import styles from '../Styles/Styles';
 import Card from '../Styles/Card';
 import AddReview from './AddReview';
@@ -25,8 +25,12 @@ export default function Products({navigation}) {
     <View style={styles.container}>
         <Ionicons name="add-outline" size={24} style={styles.modalToggle} onPress={()=>setShow(true)} />
         <Modal visible={show}>
-        <Ionicons name="close-outline" style={styles.modalToggle} size={24} onPress={()=>setShow(false)} />
-        <AddReview addReview={addReview}/>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <View>
+                    <Ionicons name="close-outline" style={styles.modalToggle} size={24} onPress={()=>setShow(false)} />
+                    <AddReview addReview={addReview}/>
+                 </View>
+            </TouchableWithoutFeedback>
         </Modal>
         <FlatList 
         keyExtractor={(rev)=> rev.id}

@@ -12,7 +12,7 @@ export default function Home({navigation}) {
       <Ionicons name="add-outline" size={24} style={styles.modalToggle} onPress={()=>setShow(true)} />
         <Modal visible={show}>
         <Ionicons name="close-outline" style={styles.modalToggle} size={24} onPress={()=>setShow(false)} />
-        <AddReview addReview={(val) => console.log(val)}/>
+        <AddReview addReview={(val) => setShow(false)}/>
         </Modal>
     </View>
   )
