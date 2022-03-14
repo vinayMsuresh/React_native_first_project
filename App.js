@@ -1,12 +1,16 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import HomeStack from './routes/HomeStack';
+import { Provider as PaperProvider } from 'react-native-paper';
+
 
 function App() {
   return (
-    <NavigationContainer>
-      <HomeStack/>
-    </NavigationContainer>
+    <PaperProvider>
+      <NavigationContainer>
+        <HomeStack/>
+      </NavigationContainer>
+    </PaperProvider>
   );
 }
 

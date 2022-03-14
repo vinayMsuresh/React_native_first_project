@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, TextInput, Text} from 'react-native';
 import {Formik} from 'formik';
-import Button from './Button';
+import {Button} from 'react-native-paper';
 import styles from '../Styles/Styles';
 import * as yup from 'yup';
 
@@ -62,8 +62,7 @@ const AddReview = ({addReview}) => {
                         />
 
                         <Text style={styles.errorText}>{props.touched.rating && props.errors.rating}</Text>
-
-                        <Button text='submit' color='red' onPress={props.handleSubmit} />
+                        <Button mode="contained" onPress={props.handleSubmit}>Submit</Button>
                     </View>
                 )
                 }
