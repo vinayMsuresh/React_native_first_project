@@ -8,7 +8,7 @@ import Todo from '../Components/Todo';
 // import ReviewDeatils from '../Components/ReviewDeatils';
 import ReviewStack from './ReviewStack';
 import Header from '../Components/Header';
-
+import Login from '../Components/Login';
 // const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -27,6 +27,7 @@ return (
     <Drawer.Screen name="First_Basics" component={First_basics} options={{headerTitle: ()=><Header title={'First'} />}} />
     <Drawer.Screen name="Reviews" component={ReviewStack} options={{headerTitle: ()=><Header title={'Review'} />}} />
     <Drawer.Screen name="Todo" component={Todo} options={{headerTitle: ()=><Header title={'Todo'} />}} />
+    <Drawer.Screen name='login' component={Login} options={{headerTitle: ()=><Header title={'Login'} />}} />
 </Drawer.Navigator>
 
 )
