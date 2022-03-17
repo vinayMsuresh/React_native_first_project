@@ -4,23 +4,23 @@ import TodoItem from './TodoItem';
 import styles from '../Styles/Styles';
 import AddTodo from './AddTodo';
 import EditTodo from './EditTodo';
+import { addTask,deleteTask,updateTask } from '../store/taskAction';
+import { useSelector, useDispatch } from 'react-redux';
 export default function Todo() {
-    const [todo, setTodo] = useState([
-        {id:1, task:'Wake Up'},
-        {id:2, task:'Have a brush'},
-        {id:3, task:'Take a bath'},
-        {id:4, task:'have a breakfast'}
-    ]);
+    const todo = useSelector(state => state.todos);
+    const dispatch = useDispatch();
     const [isAdd, setAdd] = useState(true);
     const [val, setVal] = useState('');
     const [id, setId] = useState(0);
     const addTodo = (text) => {
+        const data = {id: Math.random(), task:text}
         if(text.length > 3){
-            setTodo(todo=>{
-                return [
-                    ...todo, {id: Math.random(), task:text}
-                ]
-            })
+            dispatch(addTask(data));
+            // setTodo(todo=>{
+            //     return [
+            //         ...todo, {id: Math.random(), task:text}
+            //     ]
+            // })
             Keyboard.dismiss();
         }
         else{
@@ -29,9 +29,10 @@ export default function Todo() {
     }
 
     const deleteTodo = (id) => {
-        setTodo(todo=>{
-            return todo.filter(item => item.id != id)
-        })
+        dispatch(deleteTask(id));
+        // setTodo(todo=>{
+        //     return todo.filter(item => item.id != id)
+        // })
     }
 
     const edit = (itm) => {
@@ -42,21 +43,23 @@ export default function Todo() {
 
     const editTodo = (text) => {
         if(text.length > 3){
-            let items = todo;
-            const newList = items.map((item) => {
-                if (item.id === id) {
-                  const updatedItem = {
-                    ...item,
-                    task: text,
-                  };
+            const data = {id, task:text};
+            dispatch(updateTask(data, id))
+            // let items = todo;
+            // const newList = items.map((item) => {
+            //     if (item.id === id) {
+            //       const updatedItem = {
+            //         ...item,
+            //         task: text,
+            //       };
           
-                  return updatedItem;
-                }
+            //       return updatedItem;
+            //     }
           
-                return item;
-              });
+            //     return item;
+            //   });
           
-            setTodo(newList);
+            // setTodo(newList);
             setAdd(true);
             Keyboard.dismiss();
         }
