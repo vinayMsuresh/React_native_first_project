@@ -1,11 +1,26 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import {TextInput, Button} from 'react-native-paper';
 import {View,Alert} from 'react-native';
 import styles from '../Styles/Styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { db, createTable } from '../assets/db/db';
 export default function Login() {
   const [email,setEmail] = useState('');
   const [password, setpassword] = useState('');
+  const [users, setusers] = useState([]);
+  useEffect(()=>{
+    createTable();
+    db.transaction(tx => {
+      tx.executeSql('SELECT * FROM USERS',null,
+        (txObj, {rows:{_array} }) => {
+          setusers(_array);
+          console.log(_array);
+        },
+        (txObj, error) =>console.log(error)
+      )
+    })
+  },[])
+
 
   const handleUp = async() => {
     let user = {id:Math.random().toString(36).slice(2),email:email, password:password}
@@ -14,10 +29,15 @@ export default function Login() {
       users = await AsyncStorage.getItem('user');
       users = JSON.parse(users);
       if(users){
-        if(users.filter(i=>i.email === email)){
+        if(users.filter(i=>i.email === email).length > 0){
           Alert.alert('Email already exists');
         }
         else{
+          db.transaction(tx => {
+            tx.executeSql('INSERT INTO USERS (EMAIL, PASSWORD) values (?, ?)', [email, password],
+              (txObj, resultSet) => setusers([...users, {id: resultSet.insertId, email:email, password:password}]),
+              (txObj, error) => console.log('Error', error))
+          })
           users.push(user);
           await AsyncStorage.setItem('user',JSON.stringify(users));
           Alert.alert('user added successfully');
@@ -34,7 +54,6 @@ export default function Login() {
     catch (e) {
       console.log(e);
     }
-    console.log(user);
   }
 
   const handleIn = async() => {
